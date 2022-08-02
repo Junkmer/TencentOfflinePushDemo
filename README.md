@@ -27,13 +27,13 @@
 ![控制台配置](https://user-images.githubusercontent.com/30644065/182317579-b8d147b3-31e9-45e0-9f73-bfa769e55968.png)
 ![客户端配置](https://user-images.githubusercontent.com/30644065/182318939-3054f37a-c308-4b3a-9bdf-743fc652fbbe.png)
  
-```
+
   
-注：
-对于小米厂商，如果在厂商开发者官网配置了 ChannelID，需要在 [即时通信 IM 控制台](https://console.qcloud.com/avc) 配置同样的 ChannelID,否则可能推送不成功“#0d1117”。
-
-```
+**_注：
+对于小米厂商，如果在厂商开发者官网配置了 ChannelID，需要在 [即时通信 IM 控制台](https://console.qcloud.com/avc)配置同样的 ChannelID,否则可能推送不成功_**。
 
 
-###第三步：修改 module下 build.gradle 中的 applicationId 改成自己的包名
+
+
+## 第三步：修改 module下 build.gradle 中的 applicationId 改成自己的包名
 ![](https://user-images.githubusercontent.com/30644065/182315571-d038b13e-b283-47ec-8deb-e75b3bd394ff.png)
