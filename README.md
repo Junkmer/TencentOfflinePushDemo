@@ -1,6 +1,6 @@
 # TencentOfflinePushDemo
 
-### 本文主要介绍怎么快速让IM接入各个厂商离线推送，主要分三步：
+### _本文主要介绍怎么快速让IM接入各个厂商离线推送，主要分三步_：
 
 ## 第一步：配置对应厂商module下的 GenerateTestUserSig.java 文件下的IM SDKAPPID 和 SECRETKEY，不知道这两个参数是啥的，[点这里!!!](https://cloud.tencent.com/document/product/269/36838)
 
@@ -12,15 +12,18 @@
 ### 2.2：IM 控制台配置
 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc) ，添加各个厂商推送证书，并将您在上一步中获取的各厂商的 AppId、AppKey、AppSecret 等参数配置给 IM 控制台的推送证书。
 
-- ***小米***
+- ***----小米----***
+
 ![控制台配置](https://user-images.githubusercontent.com/30644065/182319740-5921154c-a056-4dae-94a0-654e6c0c2424.png)
 ![客户端配置](https://user-images.githubusercontent.com/30644065/182319278-0f453def-3d60-4903-87d0-6239dcfcf6c4.png)
 
-- ***华为***
+- ***----华为----***
+
 ![控制台配置](https://user-images.githubusercontent.com/30644065/182317433-c7e85feb-b7f2-4ff2-a2bc-bc7ae8c3c5f2.png)
 ![客户端配置](https://user-images.githubusercontent.com/30644065/182318759-5aa16f4e-02bd-43b9-91f1-4e9e8241c781.png)
 
-- ***Oppo***
+- ***----Oppo----***
+
 ![控制台配置](https://user-images.githubusercontent.com/30644065/182317579-b8d147b3-31e9-45e0-9f73-bfa769e55968.png)
 ![客户端配置](https://user-images.githubusercontent.com/30644065/182318939-3054f37a-c308-4b3a-9bdf-743fc652fbbe.png)
  
