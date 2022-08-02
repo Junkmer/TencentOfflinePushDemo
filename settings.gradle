@@ -1,0 +1,2 @@
+include ':XiaoMiPush', ':HuaWeiPush', ':OppoPush'
+rootProject.name='OfflinePushDemo'

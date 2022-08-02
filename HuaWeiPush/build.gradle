@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+// Add to the bottom of the file
+apply plugin: 'com.huawei.agconnect'
+android {
+    compileSdkVersion 32
+    buildToolsVersion "29.0.3"
+
+
+    signingConfigs {
+        config {
+            keyAlias 'junkmen'
+            keyPassword 'junkmen'
+            storeFile file('junkmen.jks')
+            storePassword 'junkmen'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.junkmen.offline.push.huaweipush"
+        minSdkVersion 19
+        targetSdkVersion 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.config
+        }
+        release {
+            signingConfig signingConfigs.config
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.6.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation 'com.tencent.imsdk:imsdk-plus:6.5.2803'
+
+    // 华为
+    implementation 'com.tencent.tpns:huawei:1.3.3.3-release'
+    implementation 'com.huawei.hms:push:6.5.0.300'
+}
