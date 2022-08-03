@@ -4,7 +4,7 @@
 
 ## 第一步：配置对应厂商module下的 GenerateTestUserSig.java 文件下的IM SDKAPPID 和 SECRETKEY，不知道这两个参数是啥的，[点这里!!!](https://cloud.tencent.com/document/product/269/36838)
 
-## 第二步：填写 客户端及IM控制台 推送配置参数信息完成后，即可测试推送功能。
+## 第二步：填写 客户端 及 IM控制台 推送配置参数信息
 
 ### 2.1：注册应用到厂商推送平台
 离线推送功能依赖厂商原始通道，您需要将自己的应用注册到各个厂商的推送平台，得到 AppID 和 AppKey 等参数。目前国内支持的手机厂商有：[小米](https://dev.mi.com/console/doc/detail?pId=68)、[华为](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050040060)、[OPPO](https://open.oppomobile.com/wiki/doc#id=10195)、[VIVO](https://dev.vivo.com.cn/documentCenter/doc/281)、[魅族](http://open-wiki.flyme.cn/doc-wiki/index#id?129)，海外支持 [Google FCM](https://console.firebase.google.com/u/0/?hl=zh-cn)。
@@ -35,5 +35,5 @@
 
 
 
-## 第三步：修改 module下 build.gradle 中的 applicationId 改成自己的包名
+## 第三步：修改 module下 build.gradle 中的 applicationId 改成自己的包名，最后即可测试推送功能
 ![](https://user-images.githubusercontent.com/30644065/182315571-d038b13e-b283-47ec-8deb-e75b3bd394ff.png)
