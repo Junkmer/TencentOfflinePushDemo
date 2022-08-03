@@ -27,6 +27,9 @@
 ![控制台配置](https://user-images.githubusercontent.com/30644065/182317579-b8d147b3-31e9-45e0-9f73-bfa769e55968.png)
 ![客户端配置](https://user-images.githubusercontent.com/30644065/182318939-3054f37a-c308-4b3a-9bdf-743fc652fbbe.png)
  
+### 2.3：如果要配置推送跳转到“指定页面”，可通过以下方式获取跳转 intentUri
+
+![客户端配置](https://user-images.githubusercontent.com/30644065/182507728-febe8591-3635-4fe9-b510-5ce06f281c78.png)
 
   
 **_注：
