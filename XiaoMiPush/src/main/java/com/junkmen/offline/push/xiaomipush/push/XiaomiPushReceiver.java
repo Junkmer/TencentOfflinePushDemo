@@ -1,9 +1,12 @@
 package com.junkmen.offline.push.xiaomipush.push;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.junkmen.offline.push.xiaomipush.PushDisplayActivity;
+import com.junkmen.offline.push.xiaomipush.application.MyApplication;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
@@ -38,10 +41,10 @@ public class XiaomiPushReceiver extends PushMessageReceiver {
             Log.w(TAG, "onNotificationMessageClicked: no extra data found");
             return;
         }
-        /*Intent intent = new Intent(DemoApplication.instance(), PushDisplayActivity.class);
+        Intent intent = new Intent(MyApplication.getInstance(), PushDisplayActivity.class);
         intent.putExtra("ext", ext);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        DemoApplication.instance().startActivity(intent);*/
+        MyApplication.getInstance().startActivity(intent);
     }
 
     @Override

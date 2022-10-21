@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -28,6 +30,7 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,10 +57,18 @@ public class MainActivity extends AppCompatActivity {
         //intent://im.push/jump#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.offline.push.xiaomipush/com.junkmen.offline.push.xiaomipush.PushDisplayActivity;end
     }
 
-
     public void login_im(View view){
         String userId = loginUser.getText().toString().trim();
         String userSig = GenerateTestUserSig.genTestUserSig(userId);
+
+//        String userId = "SCHOOL_1";
+//        String userSig = "eJxFkF1vgjAYhf8LtyyzH1BgiRemQ93Cgpu6yW6aBupSmaWWwiRm-31IJLt9nrw557wXZ5Os77nWsmDcMmwK58EBzt2AxVlLIxjfW2F6DH3fRwCMthWmlpXqBQLQhwgD8C9lIZSVezkcrukyTRMGb66WXz18ibf0ae6uyh1cmEqtGppSqPNs956-Rc3kB6tmwk9RZNxDqj6-s5mMZyDJaBhgFy2RV3fxc3cKt-OP18oQsCBtd8AGB-W5tcfHcjqGFSUb5l0HeH3BwPNIdJNWHsWVEwICDEMyNuR5XjXKMttpMfzj9w-o2Fdu";
+//        receiveUser.setText("13100000000");
+
+//        String userId = "13100000000";
+//        String userSig = "eJxFkNFugjAUht*F62VrobWyxAtGpptTmGHI4k3DoJijCNhWAZe9*5Bhdi6-L3-Of8638bEI7uOqgpTHmlsyNR4NZNz1WDQVSMHjTAvZYUwpNRG62bOQCsqiEybCFJsWQv8SUlFoyOAvaGE0zKAVbDu*fF65r064zCPvENTQzubzc0S30myOrWuTaeBfFHtTdbN72fkPm7UDT0mEXTjm4433uX9Ha*mNhfryLWC6zeVsFWZ1OCXiVC6kM5nclqV73l94rUK6EoyQkT1IDQdx5SPKkE1skw08TpLyVGiu20r0L-n5Bf*AWPs_";
+//        receiveUser.setText("SCHOOL_1");
+
         V2TIMManager.getInstance().login(userId, userSig, new V2TIMCallback() {
             @Override
             public void onError(int i, String s) {

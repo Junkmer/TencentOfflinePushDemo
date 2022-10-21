@@ -6,9 +6,11 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.net.wifi.aware.PublishConfig;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,11 +31,13 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText loginUser;
     private EditText receiveUser;
+    private TextView pushContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +46,33 @@ public class MainActivity extends AppCompatActivity {
 
         loginUser = findViewById(R.id.login_user);
         receiveUser = findViewById(R.id.receive_user);
+        pushContent = findViewById(R.id.text_push_content);
 
         jumpIntent();
+
+        getOPPOPushIntentData();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void getOPPOPushIntentData() {
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null){
+            Set<String> set = bundle.keySet();
+            if (set != null) {
+                for (String key : set) {
+                    Object value = bundle.get(key);
+                    if (TextUtils.equals("extKey", key)) {
+                        pushContent.setText("透传内容为："+value.toString());
+                    }
+                }
+            }
+        }
     }
 
     private void jumpIntent(){

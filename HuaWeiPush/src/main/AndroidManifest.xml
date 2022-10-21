@@ -4,9 +4,7 @@
     package="com.junkmen.offline.push.huaweipush">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <!--********华为推送权限设置******** -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- ********华为推送权限设置******** -->
     <permission
         android:name="${applicationId}.permission.PROCESS_PUSH_MSG"
         android:protectionLevel="signatureOrSystem" />
@@ -25,17 +23,22 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".MainActivity2"
+            android:exported="true" >
+
+        </activity>
+        <activity
             android:name=".PushDisplayActivity"
             android:exported="false" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            tools:ignore="IntentFilterExportedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- ********华为推送设置start******** -->
+        </activity> <!-- ********华为推送设置start******** -->
         <service
             android:name=".push.HUAWEIPushReceiver"
             android:exported="false">
@@ -43,8 +46,6 @@
                 <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <!-- ********华为推送设置end******** -->
     </application>
 
 </manifest>

@@ -29,9 +29,14 @@ public class PushDisplayActivity extends AppCompatActivity {
 
     private void getXiaoMiPushIntentData(){
         Bundle bundle = getIntent().getExtras();
-        MiPushMessage miPushMessage = (MiPushMessage)bundle.getSerializable(PushMessageHelper.KEY_MESSAGE);
-        Map extra = miPushMessage.getExtra();
-        String extContent = (String) extra.get("ext");
+        String extContent = "default";
+        if ( null != bundle.get("ext")){
+            extContent = "配置的打开应用：" + (String) bundle.get("ext");
+        }else {
+            MiPushMessage miPushMessage = (MiPushMessage)bundle.getSerializable(PushMessageHelper.KEY_MESSAGE);
+            Map extra = miPushMessage.getExtra();
+            extContent = "配置的跳转到指定页面："+(String) extra.get("ext");
+        }
         Log.e("push_data",extContent);
         textView.setText("透传内容为："+extContent);
     }
