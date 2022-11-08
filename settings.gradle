@@ -1,2 +1,3 @@
 include ':XiaoMiPush', ':HuaWeiPush', ':OppoPush'
 rootProject.name='OfflinePushDemo'
+include ':GooglePush'

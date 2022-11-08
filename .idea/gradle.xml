@@ -10,6 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/GooglePush" />
             <option value="$PROJECT_DIR$/HuaWeiPush" />
             <option value="$PROJECT_DIR$/OppoPush" />
             <option value="$PROJECT_DIR$/XiaoMiPush" />

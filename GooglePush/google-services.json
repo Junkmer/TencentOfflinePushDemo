@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "351499479458",
+    "project_id": "tencentimofflinepush",
+    "storage_bucket": "tencentimofflinepush.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351499479458:android:c7f8008500d85285cf2afb",
+        "android_client_info": {
+          "package_name": "com.junker.tencent.im.googlepush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351499479458-tv5lbubirenj2ugfnom1gv8l9g7biq5k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.junker.tencent.im.googlepush",
+            "certificate_hash": "9614f93248264e81dccb238862f01dc4352b3b02"
+          }
+        },
+        {
+          "client_id": "351499479458-7a2s2h5ukmlagg7hinhmuj62roilge1c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsdLb_Te13M6SmUFIPR18_tu73v_HnGbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "351499479458-7a2s2h5ukmlagg7hinhmuj62roilge1c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

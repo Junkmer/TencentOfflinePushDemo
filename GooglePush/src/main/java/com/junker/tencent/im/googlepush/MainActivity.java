@@ -1,13 +1,7 @@
-package com.junkmen.offline.push.xiaomipush;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.junker.tencent.im.googlepush;
 
 import android.annotation.SuppressLint;
-import android.app.ActivityManager;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,10 +9,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.junkmen.offline.push.xiaomipush.constants.PushConstants;
-import com.junkmen.offline.push.xiaomipush.push.ThirdPushTokenMgr;
-import com.junkmen.offline.push.xiaomipush.signature.GenerateTestUserSig;
+import androidx.appcompat.app.AppCompatActivity;
 
+
+import com.junker.tencent.im.googlepush.constants.PushConstants;
+import com.junker.tencent.im.googlepush.push.ThirdPushTokenMgr;
+import com.junker.tencent.im.googlepush.signature.GenerateTestUserSig;
 import com.tencent.imsdk.v2.V2TIMCallback;
 import com.tencent.imsdk.v2.V2TIMManager;
 import com.tencent.imsdk.v2.V2TIMMessage;
@@ -30,7 +26,6 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         String intentUri = intent.toUri(Intent.URI_INTENT_SCHEME);
         Log.i("TAG", "指定跳转页面地址 intentUri = " + intentUri);
-        //intent://im.push/jump#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.offline.push.xiaomipush/com.junkmen.offline.push.xiaomipush.PushDisplayActivity;end
     }
 
     public void login_im(View view){
