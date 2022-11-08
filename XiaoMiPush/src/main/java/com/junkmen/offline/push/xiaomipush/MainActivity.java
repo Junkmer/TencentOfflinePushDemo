@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -28,6 +30,7 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,10 +57,10 @@ public class MainActivity extends AppCompatActivity {
         //intent://im.push/jump#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.offline.push.xiaomipush/com.junkmen.offline.push.xiaomipush.PushDisplayActivity;end
     }
 
-
     public void login_im(View view){
         String userId = loginUser.getText().toString().trim();
         String userSig = GenerateTestUserSig.genTestUserSig(userId);
+
         V2TIMManager.getInstance().login(userId, userSig, new V2TIMCallback() {
             @Override
             public void onError(int i, String s) {

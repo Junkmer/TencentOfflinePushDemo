@@ -2,6 +2,7 @@ package com.junkmen.offline.push.xiaomipush.application;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -13,10 +14,16 @@ import com.xiaomi.mipush.sdk.MiPushClient;
 
 public class MyApplication extends Application {
     private final static String TAG = MyApplication.class.getSimpleName();
+    private static Context context;
+
+    public static Context getInstance(){
+        return context;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
+        context = this;
         initSDK();
     }
 
