@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText loginUser;
     private EditText receiveUser;
+    private TextView pushContentText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,20 @@ public class MainActivity extends AppCompatActivity {
 
         loginUser = findViewById(R.id.login_user);
         receiveUser = findViewById(R.id.receive_user);
+        pushContentText = findViewById(R.id.push_content);
 
         jumpIntent();
+
+        getGooglePushIntentData();
+    }
+
+    private void getGooglePushIntentData(){
+        Bundle bundle = getIntent().getExtras();
+        if (null != bundle){
+            String extContent = bundle.getString("ext");
+            Log.e("push_data",extContent);
+            pushContentText.setText("透传内容为："+extContent);
+        }
     }
 
     private void jumpIntent(){
