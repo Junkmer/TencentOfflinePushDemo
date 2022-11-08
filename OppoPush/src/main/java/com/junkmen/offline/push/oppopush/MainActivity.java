@@ -53,12 +53,6 @@ public class MainActivity extends AppCompatActivity {
         getOPPOPushIntentData();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
     @SuppressLint("SetTextI18n")
     private void getOPPOPushIntentData() {
         Bundle bundle = getIntent().getExtras();

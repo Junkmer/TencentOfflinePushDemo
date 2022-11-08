@@ -23,11 +23,6 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
         <activity
-            android:name=".MainActivity2"
-            android:exported="true" >
-
-        </activity>
-        <activity
             android:name=".PushDisplayActivity"
             android:exported="false" />
         <activity
