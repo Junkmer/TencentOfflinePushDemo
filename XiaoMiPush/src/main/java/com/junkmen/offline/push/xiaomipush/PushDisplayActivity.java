@@ -25,6 +25,8 @@ public class PushDisplayActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
 
         getXiaoMiPushIntentData();
+
+        Log.e("push_data","+++++++++++++++++++++++++++++++++++++++++++");
     }
 
     private void getXiaoMiPushIntentData(){

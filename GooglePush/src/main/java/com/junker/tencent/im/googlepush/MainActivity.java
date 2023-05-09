@@ -121,6 +121,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void jumpActivity(View view){
+        Intent intent = new Intent(MainActivity.this,PushDisplayActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private String getCurrentTime(){
         @SuppressLint("SimpleDateFormat")
         SimpleDateFormat s = new SimpleDateFormat("yyyyMMddhhmmss");
