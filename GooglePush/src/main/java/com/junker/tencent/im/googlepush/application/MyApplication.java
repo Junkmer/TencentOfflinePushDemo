@@ -6,12 +6,18 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailabilityLight;
 import com.google.android.gms.common.GoogleSignatureVerifier;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.installations.FirebaseInstallations;
+import com.google.firebase.installations.internal.FidListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.junker.tencent.im.googlepush.constants.PushConstants;
 import com.junker.tencent.im.googlepush.push.ThirdPushTokenMgr;
 import com.junker.tencent.im.googlepush.signature.GenerateTestUserSig;
@@ -39,7 +45,8 @@ public class MyApplication extends Application {
         V2TIMManager.getInstance().initSDK(this, GenerateTestUserSig.SDKAPPID, null);
 
         // 谷歌离线推送
-        if (isGoogleServiceSupport()) {
+//        if (isGoogleServiceSupport()) {
+            Log.e(TAG, "init  google push service");
             FirebaseInstanceId.getInstance().getInstanceId()
                     .addOnCompleteListener(new com.google.android.gms.tasks.OnCompleteListener<InstanceIdResult>() {
                         @Override
@@ -56,7 +63,7 @@ public class MyApplication extends Application {
                             ThirdPushTokenMgr.getInstance().setThirdPushToken(token);
                         }
                     });
-        }
+//        }
 
         //添加 Activity活动监听
         registerActivityLifecycleCallbacks(new StatisticActivityLifecycleCallback());

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -17,7 +18,10 @@ import android.widget.Toast;
 import com.junkmen.offline.push.huaweipush.constants.PushConstants;
 import com.junkmen.offline.push.huaweipush.push.ThirdPushTokenMgr;
 import com.junkmen.offline.push.huaweipush.signature.GenerateTestUserSig;
+import com.tencent.imsdk.common.SystemUtil;
+import com.tencent.imsdk.v2.V2TIMAdvancedMsgListener;
 import com.tencent.imsdk.v2.V2TIMCallback;
+import com.tencent.imsdk.v2.V2TIMConversationListener;
 import com.tencent.imsdk.v2.V2TIMManager;
 import com.tencent.imsdk.v2.V2TIMMessage;
 import com.tencent.imsdk.v2.V2TIMOfflinePushInfo;
@@ -44,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         receiveUser = findViewById(R.id.receive_user);
 
         jumpIntent();
+        addMessageListener();
     }
 
     private void jumpIntent(){
@@ -118,4 +123,32 @@ public class MainActivity extends AppCompatActivity {
         return format;
     }
 
+    private void addMessageListener(){
+        V2TIMManager.getConversationManager().addConversationListener(new V2TIMConversationListener() {
+            @Override
+            public void onTotalUnreadMessageCountChanged(long totalUnreadCount) {
+
+                if (totalUnreadCount > 8){
+                    totalUnreadCount = 0;
+                }
+                updateBadge(MainActivity.this,(int) totalUnreadCount);
+            }
+        });
+    }
+
+    public static void updateBadge(final Context context, final int number) {
+        if (SystemUtil.getInstanceType() != 2001) {
+            return;
+        }
+        Log.i(TAG, "huawei badge = " + number);
+        try {
+            Bundle extra = new Bundle();
+            extra.putString("package", "com.junkmen.offline.push.huaweipush");
+            extra.putString("class", "com.junkmen.offline.push.huaweipush.MainActivity");
+            extra.putInt("badgenumber", number);
+            context.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", null, extra);
+        } catch (Exception e) {
+            Log.w(TAG, "huawei badge exception: " + e.getLocalizedMessage());
+        }
+    }
 }

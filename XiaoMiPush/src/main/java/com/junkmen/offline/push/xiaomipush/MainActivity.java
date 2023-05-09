@@ -45,15 +45,25 @@ public class MainActivity extends AppCompatActivity {
         loginUser = findViewById(R.id.login_user);
         receiveUser = findViewById(R.id.receive_user);
 
-        jumpIntent();
+//        jumpIntent();
     }
 
     private void jumpIntent(){
         Intent intent = new Intent(this, PushDisplayActivity.class);
-        intent.setData(Uri.parse("pushscheme://im.push/jump"));
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        String intentUri = intent.toUri(Intent.URI_INTENT_SCHEME);
-        Log.i("TAG", "指定跳转页面地址 intentUri = " + intentUri);
+        /**
+         * 小米新出台的 跳转到指定页面方式
+         */
+        String uriString = intent.toUri(Intent.URI_INTENT_SCHEME);//该uriString就是Constants.EXTRA_PARAM_INTENT_URI对应的值
+        Log.e("TAG", "指定跳转页面地址 intentUri = " + uriString);
+        //intent:#Intent;component=com.offline.push.xiaomipush/com.junkmen.offline.push.xiaomipush.PushDisplayActivity;end
+
+        /**
+         * 小米方案 跳转到指定页面方式
+         */
+//        intent.setData(Uri.parse("pushscheme://im.push/jump"));
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        String intentUri = intent.toUri(Intent.URI_INTENT_SCHEME);
+//        Log.i("TAG", "指定跳转页面地址 intentUri = " + intentUri);
         //intent://im.push/jump#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.offline.push.xiaomipush/com.junkmen.offline.push.xiaomipush.PushDisplayActivity;end
     }
 

@@ -24,9 +24,11 @@ public class PushDisplayActivity extends AppCompatActivity {
 
     private void getGooglePushIntentData(){
         Bundle bundle = getIntent().getExtras();
-        String extContent = bundle.getString("ext");
-        Log.e("push_data",extContent);
-        textView.setText("透传内容为："+extContent);
+        if (bundle != null){
+            String extContent = bundle.getString("ext");
+            Log.e("push_data",extContent);
+            textView.setText("透传内容为："+extContent);
+        }
     }
 
 }

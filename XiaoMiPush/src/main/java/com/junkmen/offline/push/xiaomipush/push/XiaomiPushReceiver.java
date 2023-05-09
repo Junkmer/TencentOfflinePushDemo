@@ -34,17 +34,17 @@ public class XiaomiPushReceiver extends PushMessageReceiver {
     public void onNotificationMessageClicked(Context context, MiPushMessage miPushMessage) {
         Log.d(TAG, "onNotificationMessageClicked miPushMessage " + miPushMessage.toString());
 
-        // 如果聊天消息，跳转到聊天界面
-        Map<String, String> extra = miPushMessage.getExtra();
-        String ext = extra.get("ext");
-        if (TextUtils.isEmpty(ext)) {
-            Log.w(TAG, "onNotificationMessageClicked: no extra data found");
-            return;
-        }
-        Intent intent = new Intent(MyApplication.getInstance(), PushDisplayActivity.class);
-        intent.putExtra("ext", ext);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        MyApplication.getInstance().startActivity(intent);
+//        // 如果聊天消息，跳转到聊天界面
+//        Map<String, String> extra = miPushMessage.getExtra();
+//        String ext = extra.get("ext");
+//        if (TextUtils.isEmpty(ext)) {
+//            Log.w(TAG, "onNotificationMessageClicked: no extra data found");
+//            return;
+//        }
+//        Intent intent = new Intent(MyApplication.getInstance(), PushDisplayActivity.class);
+////        intent.putExtra("ext", ext);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        MyApplication.getInstance().startActivity(intent);
     }
 
     @Override
